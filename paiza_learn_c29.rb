@@ -24,5 +24,5 @@ house_array.each do |h|
   end
 end
 
-puts sweets_countt
+puts sweets_count
 
