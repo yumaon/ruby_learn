@@ -15,16 +15,13 @@ people_count.times do
   n += 1
 end
 
-total_cal = 0
 people_eat_cal_h.each do |people, cal|
-  i = 0
   x = 0
   total_cal = 0
   while x < cooking do
-    total_cal = (cal_ary[i] / 100.to_f) * cal[x]
+    total_cal = (cal_ary[x] / 100.to_f) * cal[x]
     people_total_cal_h[people] += total_cal.floor
     x += 1
-    i += 1
   end
 end
 
