@@ -22,10 +22,25 @@ keiyu_count.times do
   if next_rosen == my_rosen
     if my_station == 0
       total_price += rosen_hash[next_rosen][next_station]
-      my_station = next_station
+      my_station = next_station + 1
       rosen_to_station.shift
     else
-      total_price += rosen_hash[next_rosen][]
+      total_price += (rosen_hash[my_rosen][my_station - 1] - rosen_hash[next_rosen][next_station]).abs
+      my_station = next_station + 1
+      rosen_to_station.shift
+    end
+  elsif next_rosen != my_rosen
+    my_rosen = next_rosen
+    if my_station == 0
+      total_price += rosen_hash[next_rosen][next_station]
+      my_station = next_station + 1
+      rosen_to_station.shift
+    else
+      total_price += (rosen_hash[my_rosen][my_station - 1] - rosen_hash[next_rosen][next_station]).abs
+      my_station = next_station + 1
+      rosen_to_station.shift
     end
   end
 end
+
+p total_price
